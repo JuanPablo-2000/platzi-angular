@@ -1,0 +1,63 @@
+input {
+    &.is-valid {
+        border: 2px solid green;
+    }
+    &.is-invalid {
+        border: 2px solid red;
+    }
+}
+.messages {
+    opacity: 0;
+    transition: all .9s ease-in;
+    &.active {
+        opacity: 1;
+    }
+}
+
+div.contenedor {
+    text-align: center;
+}
+form {
+    margin: 0 auto;
+    margin-top: 4rem;
+    padding: 0px;
+    width: 60%;
+    padding-left: 3rem;
+    div.en_linea {        
+        width: 100%;
+        text-align: left;
+    }
+
+    div.nombres {
+        display: inline-block;
+        width: 45%;
+    }
+
+    div.col-3 {
+        display: inline-block;
+        width: 30%;
+    }
+
+    div.nombres.especial {
+        display: inline-block;
+        width: 30%;
+    }
+
+    mat-form-field.w-100 {
+        width: 100%;
+    }
+
+    mat-form-field.w-100.ml {
+        margin-left: 5rem;
+    }
+
+    div.nombres.ml {
+        margin-left: 5rem;  
+    }
+    /*
+    ::ng-deep .mat-form-field-underline {
+        
+    }*/
+    
+}
+

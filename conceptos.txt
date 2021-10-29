@@ -1,0 +1,23 @@
+----------------------------------------------
+Para actualizar a angular corremos el comando: 
+- ng update @angular/core@10 @angular/cli@11
+
+Para actualizar el angular material corremos el comando:
+- ng update @angular/material@10
+
+---------------------------------------------------------
+Templates Forms vs Reactive Forms
+
+Templates Forms
+
+=> Son formularios controlados por modelo
+=> El modelo basado en plantillas
+=> Angular crea modelos como FormGroups y FromControls
+=> Directivas de Angular NgForm y NgModel
+
+Reactive Forms
+
+* Mucho más pontente y mejor rendimiento
+=> Basado en Observable
+=> Mejora el tipo de validación de los datos
+=> Se usa para formularios complejos

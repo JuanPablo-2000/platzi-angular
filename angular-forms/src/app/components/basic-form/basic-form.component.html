@@ -1,0 +1,230 @@
+<body>
+    <div class="contenedor">
+        <form [formGroup]="form" (ngSubmit)="save($event)">
+
+            <div formGroupName="fullName" class="en_linea">
+                <div class="nombres">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Name </mat-label>
+                        <input matInput type="text" formControlName="name">
+                        <mat-icon matSuffix *ngIf="isNameFieldValid">done</mat-icon>
+                        <mat-icon matSuffix *ngIf="isNameFieldInvalid">close</mat-icon>
+                    </mat-form-field>
+            
+                    <div class="messages" [class.active]="isNameFieldInvalid">
+                        <mat-error *ngIf="nameField.dirty && 
+                                nameField.hasError('required')">
+                            Este campo es requerido
+                        </mat-error>
+                        <mat-error *ngIf="nameField.dirty && 
+                                nameField.hasError('maxlength')">
+                            Debe de tener maximo 10 caracteres.
+                        </mat-error>
+                        <mat-error *ngIf="nameField.dirty && 
+                                nameField.hasError('pattern')">
+                            No debe tener caracteres...
+                        </mat-error>
+                    </div>
+                </div>
+                
+                <div class="nombres">
+                    <mat-form-field appearance="outline" class="w-100 ml">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput type="text" formControlName="last">
+                        <mat-icon matSuffix *ngIf="isLastFieldValid">done</mat-icon>
+                        <mat-icon matSuffix *ngIf="isLastFieldInvalid">close</mat-icon>
+                    </mat-form-field>
+            
+                    <div class="messages" [class.active]="isLastFieldInvalid">
+                        <mat-error *ngIf="lastField.dirty && 
+                                lastField.hasError('required')">
+                            Este campo es requerido
+                        </mat-error>
+                        <mat-error *ngIf="lastField.dirty && 
+                                lastField.hasError('maxlength')">
+                            Debe de tener maximo 10 caracteres.
+                        </mat-error>
+                        <mat-error *ngIf="lastField.dirty && 
+                                lastField.hasError('pattern')">
+                            No debe tener caracteres...
+                        </mat-error>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <mat-form-field appearance="outline" class="w-100 email">
+                    <mat-label>Email </mat-label>
+                    <input matInput type="email" formControlName="email">
+                    <mat-icon matSuffix *ngIf="isEmailFieldValid">done</mat-icon>
+                    <mat-icon matSuffix *ngIf="isEmailFieldInvalid">close</mat-icon>
+                </mat-form-field>
+            
+                <div class="messages" [class.active]="isEmailFieldInvalid">
+                    <mat-error *ngIf="emailField.hasError('required')">
+                        Este campo es requerido
+                    </mat-error>
+                    <mat-error *ngIf="emailField.hasError('email')">
+                        Esto no es un email valido
+                    </mat-error>
+                </div>    
+            </div>
+
+            <div class="en_linea">
+                <div class="nombres">
+                    <mat-form-field appearance="outline" class="w-100 nombres">
+                        <mat-label>Phone </mat-label>
+                        <input matInput type="tel" formControlName="phone">
+                        <mat-icon matSuffix *ngIf="isPhoneFieldValid">done</mat-icon>
+                        <mat-icon matSuffix *ngIf="isPhoneFieldInvalid">close</mat-icon>
+                    </mat-form-field>
+                
+                    <div class="messages" [class.active]="isPhoneFieldInvalid">
+                        <mat-error *ngIf="phoneField.dirty && 
+                                phoneField.hasError('required')">
+                            Este campo es requerido
+                        </mat-error>
+                        <mat-error *ngIf="phoneField.dirty && 
+                                phoneField.hasError('pattern')">
+                            Este campo es númerico
+                        </mat-error>
+                    </div>
+                </div>
+                <div class="nombres ml">
+                    <p>
+                        Color: {{ colorField.value }}
+                        <input type="color" formControlName="color">
+                    </p>
+                </div>
+            </div>
+        
+            <div class="en_linea">
+                <div class="nombres">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Choose a date</mat-label>
+                        <input matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div class="nombres ml">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Age </mat-label>
+                        <input matInput type="number" formControlName="age">
+                    </mat-form-field>
+                
+                    <div class="messages" [class.active]="isAgeFieldInvalid">
+                        <mat-error *ngIf="ageField.dirty && 
+                                ageField.hasError('required')">
+                            Este campo es requerido
+                        </mat-error>
+                        <mat-error *ngIf="ageField.hasError('min')">
+                            Debe ser mayor de edad
+                        </mat-error>
+                        <mat-error *ngIf="ageField.dirty && 
+                                ageField.hasError('max')">
+                            Debe ser menor de 100 años
+                        </mat-error>
+                    </div>    
+                </div>
+            </div>
+
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Category</mat-label>
+                <mat-select>
+                    <mat-option value="one">Category 1</mat-option>
+                    <mat-option value="two">Category 2</mat-option>
+                    <mat-option value="three">Category 3</mat-option>
+                    <mat-option value="four">Category </mat-option>
+                </mat-select>
+            </mat-form-field>
+        
+            <div class="en_linea">
+                <div class="col-3">
+                    <mat-list>
+                        <mat-radio-group aria-label="Zone">
+                            <mat-list-item>
+                                <h4>Zone</h4>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <mat-radio-button value="1">Zone 1</mat-radio-button>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <mat-radio-button value="2">Zone 2</mat-radio-button>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <mat-radio-button value="3">Zone 3</mat-radio-button>
+                            </mat-list-item>
+                        </mat-radio-group>
+                    </mat-list>
+                </div>
+    
+                <div class="col-3">
+                    <mat-list>
+                        <mat-radio-group aria-label="Gender">
+                            <mat-list-item>
+                                <h4>Sexo</h4>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <mat-radio-button value="1">Male</mat-radio-button>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <mat-radio-button value="2">Female</mat-radio-button>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <mat-radio-button value="3">Other</mat-radio-button>
+                            </mat-list-item>
+                        </mat-radio-group>
+                    </mat-list>
+                </div>
+
+                <div class="col-3">
+                    <mat-list>
+                        <mat-list-item>
+                            <h4>Cursos</h4>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <mat-checkbox class="example-margin">Python</mat-checkbox>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <mat-checkbox class="example-margin">Mobile First</mat-checkbox>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <mat-checkbox class="example-margin">Grid Layout</mat-checkbox>
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+            </div>
+
+
+            <mat-form-field class="example-chip-list w-100">
+                <mat-label>Favorite Fruits</mat-label>
+                <mat-chip-list #chipList aria-label="Fruit selection">
+                    <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable"
+                        (removed)="remove(fruit)">
+                        {{fruit}}
+                        <button matChipRemove *ngIf="removable">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-chip>
+                    <input placeholder="New fruit..." #fruitInput [formControl]="fruitCtrl" [matAutocomplete]="auto"
+                        [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                        (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                    <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                        {{fruit}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        
+            <section class="example-section tamanio">
+                <mat-checkbox class="example-margin">Agree</mat-checkbox>
+            </section>
+        
+            <button mat-flat-button color="primary">Enviar</button>
+        </form>
+    </div>
+</body>
