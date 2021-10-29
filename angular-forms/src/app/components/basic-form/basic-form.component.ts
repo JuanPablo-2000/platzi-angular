@@ -11,6 +11,8 @@ import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { MatSidenav } from '@angular/material/sidenav';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 export interface Task {
   name: string;
@@ -48,9 +50,11 @@ export class BasicFormComponent implements OnInit {
     ]
   };
 
+  @ViewChild(MatSidenav) sidenav!: MatSidenav;
   @ViewChild('fruitInput') fruitInput: ElementRef<HTMLInputElement>;
 
   constructor(
+    private observer: BreakpointObserver,
     private formBuilder: FormBuilder
   ) {
     this.buildForm();
@@ -69,6 +73,18 @@ export class BasicFormComponent implements OnInit {
     // .subscribe(value => {
     //   console.log(value);
     // });
+  }
+
+  ngAfterViewInit() {
+    this.observer.observe(['(max-width: 700px']).subscribe((res) => {
+      if (res.matches) {
+        this.sidenav.mode = 'over';
+        this.sidenav.close();
+      } else {
+        this.sidenav.mode = 'side';
+        this.sidenav.open();
+      }
+    });
   }
 
   updateAllComplete() {
