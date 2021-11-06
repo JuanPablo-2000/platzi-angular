@@ -76,7 +76,7 @@ export class BasicFormComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.observer.observe(['(max-width: 700px']).subscribe((res) => {
+    this.observer.observe(['(max-width: 1200px']).subscribe((res) => {
       if (res.matches) {
         this.sidenav.mode = 'over';
         this.sidenav.close();

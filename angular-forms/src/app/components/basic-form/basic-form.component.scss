@@ -18,19 +18,19 @@ div.contenedor {
     text-align: center;
 }
 form {
-    margin: 0 auto;
-    margin-top: 4rem;
-    padding: 0px;
+    margin-right: 18rem;
+    padding: 0;
     width: 60%;
-    padding-left: 3rem;
+
     div.en_linea {        
         width: 100%;
         text-align: left;
+        margin: 2rem;
     }
 
     div.nombres {
         display: inline-block;
-        width: 45%;
+        width: 13rem;
     }
 
     div.col-3 {
@@ -43,22 +43,16 @@ form {
         width: 30%;
     }
 
-    mat-form-field.w-100 {
-        width: 100%;
+    mat-form-field {
+        margin: 0.5rem;
+        width: 180px;
+        height: 20px;
     }
 
-    mat-form-field.w-100.ml {
-        margin-left: 5rem;
+    button {
+        margin-top: 5rem;
+        margin-right: 10rem;
     }
-
-    div.nombres.ml {
-        margin-left: 5rem;  
-    }
-    /*
-    ::ng-deep .mat-form-field-underline {
-        
-    }*/
-    
 }
 
 /* SideNav */
@@ -90,7 +84,7 @@ mat-sidenav-container {
         justify-content: center;
         align-items: center;
 
-        font-size: 2rem;
+        font-size: .8rem;
         color: lightgray;
 
         border-radius: 10px;
